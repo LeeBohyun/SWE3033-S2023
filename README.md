@@ -1,4 +1,4 @@
-# SWE3033-F2023
+# SWE3033-S2023
 SKKU Database Project Spring 2023
 
 - Instructor: Prof. Sang-Won Lee (swlee@skku.edu)
@@ -44,5 +44,3 @@ From these three projects, you can learn how each database system works and unde
 - If you have any questions about this course, please contact the teaching assistant: Bo-Hyun Lee (lia323@skku.edu).
 - You must attend Q & A session every Wednesday 18:00PM - 19:00PM at 제2공학관, 26310.
 
-## References
-- https://github.com/meeeejin/SWE3033-F2021/
