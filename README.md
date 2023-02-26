@@ -18,7 +18,7 @@ From these three projects, you can learn how each database system works and unde
 
 | Week # | Topic              | Contents    | TA     |
 | :----: | :----------------- |:----------- | :----: |
-| 1      | | Introduction | Bo-Hyun Lee |
+| 1      | | [Install TPC-C and MySQL](https://github.com/LeeBohyun/SWE3033-S2023/blob/main/week1/reference/tpcc-mysql-install-guide.md) | Bo-Hyun Lee |
 | 2      | TPC-C on MySQL  | [Load & run TPC-C, measure tpmC, and key metrics and analyze the results](https://github.com/LeeBohyun/SWE3033-S2023/blob/main/week1/experiment-guide.md) | Bo-Hyun Lee |
 | 3      | TPC-C on MySQL  |TBD| Bo-Hyun Lee |
 | 4      | TPC-C on MySQL |TBD| Bo-Hyun Lee |
