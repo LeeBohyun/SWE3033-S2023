@@ -14,7 +14,7 @@ Building MySQL 5.7 from the source code enables you to customize build parameter
 $ sudo apt-get install libreadline6 libreadline6-dev
 ```
 
-If the package `libreadline6` is not available, download the newer version:
+If the package `libreadline6` is not available, download the newer version or ```libreadline-dev```:
 
 ```bash
 $ sudo apt-get install libreadline7
@@ -31,6 +31,8 @@ $ sudo apt-get install libaio1 libaio-dev
 ```bash
 $ sudo apt-get install build-essential cmake libncurses5 libncurses5-dev bison
 ```
+
+- If you are using VM or Virtualbox, please avoid installing MySQL with ```root```. Please make an additional user and resume the process.
 
 ### Build and install
 
