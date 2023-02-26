@@ -37,7 +37,7 @@ From these three projects, you can learn how each database system works and unde
 ## Course Overview
 - Lecture video and experiment guide uploaded every Monday: recommend you to watch the videos before Wednesday
 - Offline Q&A lab every Wednesday: Ask questions and try to end the experiments during that time
-- Submit 2-page report before Sunday
+- Submit 2-page report before Sunday. Report format: [Link](https://github.com/LeeBohyun/SWE3033-S2023/blob/main/report-submission-guide.md)
 
 ## Contact
 
