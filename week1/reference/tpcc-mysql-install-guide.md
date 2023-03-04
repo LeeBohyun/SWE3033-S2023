@@ -29,7 +29,7 @@ $ sudo apt-get install libaio1 libaio-dev
 - etc.
 
 ```bash
-$ sudo apt-get install build-essential cmake libncurses5 libncurses5-dev bison
+$ sudo apt-get install build-essential cmake libncurses5 libncurses5-dev bison libssl-dev openssl
 ```
 
 - If you are using VM or Virtualbox, please avoid installing MySQL with ```root```. Please make an additional user and resume the process.
