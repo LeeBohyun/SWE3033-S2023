@@ -77,10 +77,13 @@ $ ./bin/mysqld --initialize --user=mysql --datadir=/path/to/datadir --basedir=/p
 ```
 
 6. Reset the root password:
-
+- Open mysql server for connection.
 ```bash
 $ ./bin/mysqld_safe --skip-grant-tables --datadir=/path/to/datadir
+```
 
+- Open an another terminal and connect as root.
+```bash
 $ ./bin/mysql -uroot
 
 root:(none)> use mysql;
