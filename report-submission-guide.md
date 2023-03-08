@@ -43,5 +43,5 @@ Make sure that you submit your own individual work.
 ## Due date
 
 - Submit your report via *i-Campus*
-- Unless posted otherwise, reports are due by **Tuesday (midnight)** of the following week after lab
+- Unless posted otherwise, reports are due by **Sunday (midnight)** of the following week after lab
 - Late submissions are **penalized by 20%** of the total grade per day. Reports more than **1 week late will not be accepted**
