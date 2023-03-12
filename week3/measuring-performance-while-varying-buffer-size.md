@@ -30,7 +30,7 @@ $ ./tpcc_start -h 127.0.0.1 -S /tmp/mysql.sock -d tpcc -u root -p "yourPassword"
 ```
 
 3. Monitor the buffer hit/miss ratio of MySQL
-- While running the benchmark, collect performance metrics (e.g., I/O status, transaction throughput, hit/miss ratio) and record them in a separate file for future analysis. Refer to the performance monitoring guide.
+- While running the benchmark, collect performance metrics (e.g., I/O status, transaction throughput, hit/miss ratio) and record them in a separate file for future analysis. Refer to the [performance monitoring guide](https://github.com/LeeBohyun/SWE3033-S2023/blob/main/week1/reference/performance-analysis-guide.md).
 - Also, regarding hit ratio, this is a way to monitor buffer hit rate.
 ```bash
 $ ./bin/mysql -uroot -pyourPassword
