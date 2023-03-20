@@ -118,6 +118,8 @@ $ make -j install
 ```
 
 3. Start a MySQL server
+- Set ``innodb_buffer_pool_size`` as 10% of your DB size. 
+- e.g., if you are using 20 warehouses(i.e., 2GB), you can set your ``innodb_buffer_pool_size`` as 200MB. 
 ```bash
 $ ./bin/mysqld_safe --defaults-file=/path/to/my.cnf
 ```
