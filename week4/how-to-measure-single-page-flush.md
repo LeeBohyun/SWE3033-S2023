@@ -75,7 +75,7 @@ buf_flush_single_page_from_LRU(
 
 			ib_time_monotonic_ms_t	single_page_flush_end_time = ut_time_monotonic_ms();	//added line
 
-			fprintf(stderr, "single page flush response time: %d", single_page_flush_end_time-single_page_flush_start_time); //added line
+			fprintf(stderr, "single page flush response time: %d\n", single_page_flush_end_time-single_page_flush_start_time); //added line
 
 			if (freed) {
 				break;
