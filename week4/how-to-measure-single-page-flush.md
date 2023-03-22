@@ -153,5 +153,5 @@ single page flush response time: 10
 ```bash
 tail /path/to/test-data/mysql_eror.log
 ```
-- The report should contain the **average response time **of single page flushes and the **total wait time** of user threads waiting for a single page flushes.
+- The report should contain the **average response time** of single page flushes and the **total wait time** of user threads waiting for a single page flushes.
 
