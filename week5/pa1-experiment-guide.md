@@ -75,7 +75,23 @@ $ ./tpcc_start -h 127.0.0.1 -S /tmp/mysql.sock -d tpcc -u root -p "yourPassword"
 
 3. Next, run the same experiment with modified ``my.cnf`` to improve the performance. Reopen MySQL server with the modified ``my.cnf`` file, and run the same TPC-C benchmark.
 
-4. Compare various performance metrics, mainly TpmC.
+4. Compare various performance metrics, mainly TpmC, read/s, write/s, and such. Then, **analyze the reason why it leads to performance improvement** on your report based on MySQL source code and [MySQL document](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html). 
+
+## Submission Requirement
+Your report should include:
+- Screenshot of tpmC result of both experiments 
+- Anaylsis on the experiment result including reason why it leads to performance improvement
+
+You should also submit two ``my.cnf`` files for me to test.
+
+## Grading Policy
+- Performance improvement: 40%
+- Result analysis: 60%
+
+Let me remind you that any kind of forging is unaccepted, and you will get zero marks. 
+
+
+
 
 
 
