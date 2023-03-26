@@ -22,7 +22,7 @@ From these three projects, you can learn how each database system works and unde
 | 2      | TPC-C on MySQL  | [Load & run TPC-C, measure tpmC, and key metrics and analyze the results](https://github.com/LeeBohyun/SWE3033-S2023/blob/main/week1/experiment-guide.md) | Bo-Hyun Lee |
 | 3      | TPC-C on MySQL  |[Measuring buffer hit rate while varying the buffer size](https://github.com/LeeBohyun/SWE3033-S2023/blob/main/week3/measuring-performance-while-varying-buffer-size.md)| Bo-Hyun Lee |
 | 4      | TPC-C on MySQL |[Quantifying the cost of single page flush](https://github.com/LeeBohyun/SWE3033-S2023/blob/main/week4/how-to-measure-single-page-flush.md)| Bo-Hyun Lee |
-| 5      | TPC-C on MySQL |Project #1 MySQL | Bo-Hyun Lee |
+| 5      | TPC-C on MySQL |[Project #1 MySQL](https://github.com/LeeBohyun/SWE3033-S2023/blob/main/week5/pa1-experiment-guide.md) | Bo-Hyun Lee |
 | 6      | RocksDB |Introduction to RocksDB and DBBench | Bo-Hyun Lee |
 | 7      | RocksDB | TBD| Bo-Hyun Lee |
 | 8      | | **Mid-term exam** |  |
