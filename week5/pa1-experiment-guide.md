@@ -43,7 +43,7 @@ log-error       = /path/to/datadir/mysql_error.log
 innodb_page_size=16KB
 
 # Buffer pool settings
-innodb_buffer_pool_size=256M
+innodb_buffer_pool_size=200M
 innodb_buffer_pool_instances=8
 
 # Transaction log settings
