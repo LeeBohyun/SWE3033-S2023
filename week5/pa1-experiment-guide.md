@@ -73,7 +73,7 @@ $ ./bin/mysqld_safe --defaults-file=/path/to/my.cnf
 $ ./tpcc_start -h 127.0.0.1 -S /tmp/mysql.sock -d tpcc -u root -p "yourPassword" -w 20 -c 8 -r 10 -l 1200 | tee tpcc-vanilla-result.txt
 ```
 
-3. Next, run the same experiment with modified ``my.cnf`` to improve the performance. Reopen MySQL server with the modified ``my.cnf`` file, and run the same TPC-C benchmark.
+3. Next, run the same experiment with modified ``my.cnf`` to improve the performance. (**Do not change innodb_buffer_pool_size**) Reopen MySQL server with the modified ``my.cnf`` file, and run the same TPC-C benchmark.
 
 4. Compare various performance metrics, mainly TpmC, read/s, write/s, and such. Then, **analyze the reason why it leads to performance improvement** on your report based on MySQL source code and [MySQL document](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html). 
 
