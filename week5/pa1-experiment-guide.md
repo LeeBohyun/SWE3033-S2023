@@ -70,7 +70,7 @@ $ ./bin/mysqld_safe --defaults-file=/path/to/my.cnf
 2. Run the TPC-C benchmark
 - Run the TPC-C benchmark for 30 minutes. Using performance metrics shown by ``iostat`` or ``show engnine innodb status`` query can help you compare the performance.
 ```bash
-$ ./tpcc_start -h 127.0.0.1 -S /tmp/mysql.sock -d tpcc -u root -p "yourPassword" -w 20 -c 8 -r 10 -l 1200 | tee tpcc-vanilla-result.txt
+$ ./tpcc_start -h 127.0.0.1 -S /tmp/mysql.sock -d tpcc -u root -p "yourPassword" -w 20 -c 8 -r 10 -l 1800 | tee tpcc-vanilla-result.txt
 ```
 
 3. Next, run the same experiment with modified ``my.cnf`` to improve the performance. (**Do not change innodb_buffer_pool_size**) Reopen MySQL server with the modified ``my.cnf`` file, and run the same TPC-C benchmark.
