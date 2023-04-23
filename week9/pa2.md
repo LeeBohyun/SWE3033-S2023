@@ -15,6 +15,7 @@
 
 
 ## PA2 Report and Submission
-- Submit 2-page report containing the screenshot of all three results
-- Elaborate on the reason why the changed parameter value mitigates space amplification
-- Also contain db_bench options that you ran for each experiment in  
+- Submit 2-page report containing the screenshot of all three exc.
+- Elaborate on the reason why the changed parameter value mitigates space amplification in your report.
+- Submit run_dbbench.sh file that contains ``./db_bench`` commands for your experiments.
+- Refer to this file to see the example of ``run_dbbench.sh``. [File]()
