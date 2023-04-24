@@ -1,4 +1,4 @@
-# PA2: Measure Space and Write Amplification in RocksDB and ays to Mitigate Space Amplification
+# PA2: Measure Space and Write Amplification in RocksDB and Ways to Mitigate Space Amplification
 
 
 ## Overview
