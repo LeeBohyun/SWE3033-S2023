@@ -12,7 +12,7 @@
 - Refer to this link for how to run db_bench, how to change compaction style, and how to checkout write amplification. [Link](https://github.com/LeeBohyun/RocksDB/blob/main/measure_SAF.md)
 - Once you measured required metrics, remove all the files in ``/path/to/datadir`` and change the db_bench option in order to improve space amplification and how it affects write amplification. (``/path/to/datadir`` means ``-db="/home/lbh/rocksdb-data"`` in db_bench option)
 - Refer to this link for details of db_bench options: [Link](https://github.com/EighteenZi/rocksdb_wiki/blob/master/Benchmarking-tools.md).
-- db_bench parameters that you should **not** change: `benchmarks`, `key_size`, `value_size`, `num`. 
+- db_bench parameters that you should **not** change: `benchmarks`, `key_size`, `value_size`, and `num`. 
 
 
 ## PA2 Report and Submission
