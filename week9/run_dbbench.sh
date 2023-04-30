@@ -1,30 +1,49 @@
 #!/bin/bash
 
-        ./db_bench -db=/home/vldb/CNS --benchmarks=fillrandom --bytes_per_sync=2097152\
-                -use_direct_reads -key_size=16 -value_size=800   -level0_file_num_compaction_trigger=4 -disable_wal=on -wal_size_limit_MB=2\
-                -use_direct_io_for_flush_and_compaction \
-                -max_bytes_for_level_multiplier=4 -write_buffer_size=2147483648  -min_write_buffer_number_to_merge=2 -max_write_buffer_number=4\
-                -base_background_compactions=4 -max_background_compactions=4 -max_background_flushes=4 -writable_file_max_buffer_size=2097152 \
-                -target_file_size_multiplier=1 -duration=1800 -threads=48  \
-                -max_background_jobs=32  -statistics=true -stats_level=5 \
-                -stats_interval_seconds=60 
+# level compaction
+./db_bench --benchmarks="readrandomwriterandom" \
+        -db="/home/lbh/rocksdb-data" \
+        -use_direct_io_for_flush_and_compaction=true \
+        -use_direct_reads=true \
+        -compaction_style=0 \ 
+        -target_file_size_base=2097152 \
+        -write_buffer_size=2097152 \
+        -max_bytes_for_level_base=33554432 \
+        -max_bytes_for_level_multiplier=3 \
+        -num=10000000 \
+        --key_size=16 --value_size=240 \ 
+        -statistics \
+        -stats_dump_period_sec=30 \
+        -stats_interval_seconds=10 2>&1 | tee result.txt
                 
-                
-        ./db_bench -db=/home/vldb/CNS --benchmarks=fillrandom --bytes_per_sync=2097152\
-                -use_direct_reads -key_size=16 -value_size=800   -level0_file_num_compaction_trigger=4 -disable_wal=on -wal_size_limit_MB=2\
-                -use_direct_io_for_flush_and_compaction \
-                -max_bytes_for_level_multiplier=4 -write_buffer_size=2147483648  -min_write_buffer_number_to_merge=2 -max_write_buffer_number=4\
-                -base_background_compactions=4 -max_background_compactions=4 -max_background_flushes=4 -writable_file_max_buffer_size=2097152 \
-                -target_file_size_multiplier=1 -duration=1800 -threads=48  \
-                -max_background_jobs=32  -statistics=true -stats_level=5 \
-                -stats_interval_seconds=60 
+# universal compaction                
+./db_bench --benchmarks="readrandomwriterandom" \
+        -db="/home/lbh/rocksdb-data" \
+        -use_direct_io_for_flush_and_compaction=true \
+        -use_direct_reads=true \
+        -compaction_style=1 \ 
+        -target_file_size_base=2097152 \
+        -write_buffer_size=2097152 \
+        -max_bytes_for_level_base=33554432 \
+        -max_bytes_for_level_multiplier=3 \
+        -num=10000000 \
+        --key_size=16 --value_size=240 \ 
+        -statistics \
+        -stats_dump_period_sec=30 \
+        -stats_interval_seconds=10 2>&1 | tee result1.txt
 
-                
-        ./db_bench -db=/home/vldb/CNS --benchmarks=fillrandom --bytes_per_sync=2097152\
-                -use_direct_reads -key_size=16 -value_size=800   -level0_file_num_compaction_trigger=4 -disable_wal=on -wal_size_limit_MB=2\
-                -use_direct_io_for_flush_and_compaction \
-                -max_bytes_for_level_multiplier=4 -write_buffer_size=2147483648  -min_write_buffer_number_to_merge=2 -max_write_buffer_number=4\
-                -base_background_compactions=4 -max_background_compactions=4 -max_background_flushes=4 -writable_file_max_buffer_size=2097152 \
-                -target_file_size_multiplier=1 -duration=1800 -threads=48  \
-                -max_background_jobs=32  -statistics=true -stats_level=5 \
-                -stats_interval_seconds=60 
+# modified version that mitigates space amplification                
+./db_bench --benchmarks="readrandomwriterandom" \
+        -db="/home/lbh/rocksdb-data" \
+        -use_direct_io_for_flush_and_compaction=true \
+        -use_direct_reads=true \
+        -compaction_style=0 \ 
+        -target_file_size_base=2097152 \
+        -write_buffer_size=2097152 \
+        -max_bytes_for_level_base=33554432 \
+        -max_bytes_for_level_multiplier=3 \
+        -num=10000000 \
+        --key_size=16 --value_size=240 \ 
+        -statistics \
+        -stats_dump_period_sec=30 \
+        -stats_interval_seconds=10 2>&1 | tee result2.txt
