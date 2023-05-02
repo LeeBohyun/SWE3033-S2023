@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # level compaction
-./db_bench --benchmarks="readrandomwriterandom" \
+./db_bench --benchmarks="fillrandom" \
         -db="/home/lbh/rocksdb-data" \
         -use_direct_io_for_flush_and_compaction=true \
         -use_direct_reads=true \
@@ -17,7 +17,7 @@
         -stats_interval_seconds=10 2>&1 | tee result.txt
                 
 # universal compaction                
-./db_bench --benchmarks="readrandomwriterandom" \
+./db_bench --benchmarks="fillrandom" \
         -db="/home/lbh/rocksdb-data" \
         -use_direct_io_for_flush_and_compaction=true \
         -use_direct_reads=true \
@@ -33,7 +33,7 @@
         -stats_interval_seconds=10 2>&1 | tee result1.txt
 
 # modified version that mitigates space amplification                
-./db_bench --benchmarks="readrandomwriterandom" \
+./db_bench --benchmarks="fillrandom" \
         -db="/home/lbh/rocksdb-data" \
         -use_direct_io_for_flush_and_compaction=true \
         -use_direct_reads=true \
