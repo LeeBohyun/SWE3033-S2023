@@ -28,7 +28,7 @@ From these three projects, you can learn how each database system works and unde
 | 8      | | **Mid-term exam** |  |
 | 9      | RocksDB | [PA2: Space Amplification in RocksDB](https://github.com/LeeBohyun/SWE3033-S2023/blob/main/week9/pa2.md) | Bo-Hyun Lee |
 | 10     | RocksDB | RocksDB Compaction Details | Bo-Hyun Lee |
-| 11     | Androbench on SQLite | SQLite and Androbench Installation Guide| Bo-Hyun Lee |
+| 11     | Androbench on SQLite | [SQLite and Androbench Installation Guide](https://github.com/LeeBohyun/SWE3033-S2023/blob/main/week11/sqlite-intro-and-androbench.md)| Bo-Hyun Lee |
 | 12     | Androbench on SQLite | TBD | Bo-Hyun Lee |
 | 13     | Androbench on SQLite | TBD | Bo-Hyun Lee |
 | 14     | Androbench on SQLite | TBD | Bo-Hyun Lee |
