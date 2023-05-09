@@ -5,7 +5,7 @@
 This week you will write a report on **SQLite database engine** (see the deatil in Instruction 0)
 and learn how to run the  Androbench benchmark on SQLite database engine.
 
-Follow the guide below. If you have any questions, Please feel free to contact me via email (Jonghyeok Park / akindo19@skku.edu)
+Follow the guide below. If you have any questions, Please feel free to contact me via email (Jonghyeok Park / lia323@skku.edu)
 
 > NOTE: This lab is based on the Linux environment. If you don't have a Linux machine, use [VirturalBox](https://www.virtualbox.org/). (Recommend Ubuntu 18.04)
 
