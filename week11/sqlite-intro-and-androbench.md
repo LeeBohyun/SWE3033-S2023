@@ -48,6 +48,7 @@ make -j # of physical core
 ### 2. Record and analyze the SQLite trace file 
 - Configure the SQLite environent setup
 - Evaluate execution time and record `real` time
+- [androbench..sql](https://github.com/LeeBohyun/SWE3033-S2023/blob/main/week11/androbench.sql)
 
 ```bash
 vldb@NVDIMM:~/SWE3033/sqlite-src-3360000/build$ time ./sqlite3 /home/vldb/ssd/androbench.db < androbench.sql &> /dev/null
