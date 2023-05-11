@@ -33,7 +33,7 @@ The default journal mode is `del` (i.e., delete RBJ mode).
     make: *** Waiting for unfinished jobs....
     ```
 
-- Soultion
+- Solution
     ```
     sudo apt-get install tcl-dev
     make clean
@@ -45,7 +45,7 @@ The default journal mode is `del` (i.e., delete RBJ mode).
 
 ### 0. Write Report
 
-Write a **single page** report for SQLite database engine and the proposal must includes:
+Write a **single page** report for SQLite database engine and the proposal must include:
 
 1. Compare with the SQLite and client-server RDBMS (e.g., MySQL, RocksDB, and Oracle)
   - Advantages of the SQLite 
