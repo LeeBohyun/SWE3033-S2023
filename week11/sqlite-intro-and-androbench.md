@@ -2,15 +2,46 @@
 
 ## Overview
 
-This week you will write a report on **SQLite database engine** (see the deatil in Instruction 0)
+This week you will write a report on **SQLite database engine** (see the detail in Instruction 0)
 and learn how to run the  Androbench benchmark on SQLite database engine.
 
 Follow the guide below. If you have any questions, Please feel free to contact me via email ( lia323@skku.edu)
 
 > NOTE: This lab is based on the Linux environment. If you don't have a Linux machine, use [VirturalBox](https://www.virtualbox.org/). (Recommend Ubuntu 18.04)
 
-## Instructions
+## Frequently Asked Questions
 
+
+### How to get `androbench.sql`
+
+You can download `androbench.sql` file (single SQL file) in our Github.
+
+https://github.com/LeeBohyun/SWE3033-S2023/blob/main/week11/androbench.sql
+
+### What is default jounral mode ?
+
+The default journal mode is `del` (i.e., delete RBJ mode).
+
+
+### SQLite build error
+
+- Problem : `tclsh: not found`
+    ```
+    /bin/sh: 1: tclsh: not found
+    Makefile:1101: recipe for target 'shell.c' failed
+    make: *** [shell.c] Error 127
+    make: *** Waiting for unfinished jobs....
+    ```
+
+- Soultion
+    ```
+    sudo apt-get install tcl-dev
+    make clean
+    make -j
+    ```
+
+
+## Instructions
 
 ### 0. Write Report
 
@@ -48,7 +79,7 @@ make -j # of physical core
 ### 2. Record and analyze the SQLite trace file 
 - Configure the SQLite environent setup
 - Evaluate execution time and record `real` time
-- [androbench..sql](https://github.com/LeeBohyun/SWE3033-S2023/blob/main/week11/androbench.sql)
+- [androbench.sql](https://github.com/LeeBohyun/SWE3033-S2023/blob/main/week11/androbench.sql)
 
 ```bash
 vldb@NVDIMM:~/SWE3033/sqlite-src-3360000/build$ time ./sqlite3 /home/vldb/ssd/androbench.db < androbench.sql &> /dev/null
