@@ -61,67 +61,27 @@ vim sqltie.config
 database             = ./tpcc.db
 ```
 
-### 2. Load TPC-C database 
+### 2. Load TPC-C database (Warehouse 10)
 
 ```bash
+# loading
 python tpcc.py --warehouse=10 --config=./sqlite.config --no-execute sqlite
 ```
+
 - `warehouse`: The number of warehouse 
 - `config` : Configuration file path
 - `no-execute` : Loading only version (no execute)
 
-
+```bash
+# change database file name for backup
+cp tpcc.db backup.db
+```
 
 ### 3. Run TPC-C benchmark
 
-```bash
-python tpcc.py --warehouse=10 --config=./sqlite.config --no-load --duration=300 --buffer=1024 sqlite
-```
-
-- `warehouse`: The number of warehouse 
-- `config` : Configuration file path
-- `no-load` : Running only version (no loading phase)
-- `duration` : Total execution time (N seconds)
-- `buffer` : Page cache size (N pages in the buffer)
-
-
-```bash
-vldb@NVDIMM:~/SWE3033/py-tpcc/pytpcc$ python tpcc.py --warehouse=10 --config=./sqlite.config --no-load --duration=300 sqlite
-
-11-21-2021 03:17:44 [<module>:234] INFO : Initializing TPC-C benchmark using SqliteDriver
-11-21-2021 03:17:44 [execute:056] INFO : Executing benchmark for 300 seconds
-==================================================================
-Execution Results after 300 seconds
-------------------------------------------------------------------
-                  Executed        Time (µs)       Rate
-  DELIVERY        86              21259987.8311   4.05 txn/s
-  NEW_ORDER       1043            161138629.436   6.47 txn/s
-  ORDER_STATUS    76              18683.1951141   4067.83 txn/s
-  PAYMENT         982             117047047.377   8.39 txn/s
-  STOCK_LEVEL     95              210156.917572   452.04 txn/s
-------------------------------------------------------------------
-  TOTAL           2282            299674504.757   7.61 txn/s
-```
-
-## How to Load and Run TPC-C
-
-### 1. Loading database (warehouse 10)
-
-```bash
-
-# loading
-python tpcc.py --warehouse=10 --config=./sqlite.config --no-execute sqlite
-
-# change database file name 
-cp tpcc.db backup.db
-
-```
-
-- Prepare the database using loading command 
-- Change database file name as `backup.db`
-
-
-### 2. Run TPC-C Benchmark 
+- For each run, prepare the same database file (copy `backup.db` database file)
+- To minimize the impact of the performance interference, flush all caches in the system using `vm.drop_caches=3` command.
+- Run TPC-C benchmark for 1800 sec
 
 ```bash
 
@@ -135,13 +95,31 @@ sudo sysctl vm.drop_caches=3
 python tpcc.py --warehouse=10 --config=./sqlite.config --no-load --duration=1800 --journal=wal sqlite
 
 ```
+- `warehouse`: The number of warehouse 
+- `config` : Configuration file path
+- `no-load` : Running only version (no loading phase)
+- `duration` : Total execution time (N seconds)
 
-- For each runs, prepare the same database file (use `backup.db` database file)
-- To minimize the impact of the performance interference, flsuh all caches in the system using `vm.drop_caches=3` command.
-- Run TPC-C benchmark for 1800 sec
+- Example output
+```bash
+vldb@NVDIMM:~/SWE3033/py-tpcc/pytpcc$ python tpcc.py --warehouse=10 --config=./sqlite.config --no-load --duration=1800 --journal=wal sqlite
 
+11-21-2021 03:17:44 [<module>:234] INFO : Initializing TPC-C benchmark using SqliteDriver
+11-21-2021 03:17:44 [execute:056] INFO : Executing benchmark for 1800 seconds
+==================================================================
+Execution Results after 1800 seconds
+------------------------------------------------------------------
+                  Executed        Time (µs)       Rate
+  DELIVERY        86              21259987.8311   4.05 txn/s
+  NEW_ORDER       1043            161138629.436   6.47 txn/s
+  ORDER_STATUS    76              18683.1951141   4067.83 txn/s
+  PAYMENT         982             117047047.377   8.39 txn/s
+  STOCK_LEVEL     95              210156.917572   452.04 txn/s
+------------------------------------------------------------------
+  TOTAL           2282            299674504.757   7.61 txn/s
+```
 
-### 3. Change the journal mode and repeat step 2
+### 4. Change the journal mode and repeat step 2
 
 - Change the `journal` mode of the SQLite database engine 
 - Compare two different journal: `delete` and `wal` modes
@@ -153,7 +131,7 @@ python tpcc.py --warehouse=10 --config=./sqlite.config --no-load --duration=1800
   - Change journal mode to **delete** and **wal**
 
 2. Observe how TPS (txn/s) changes 
-  - Record and analyze the TPS for each transaction (DELIVERY, NEW_ORDER, ORDER_STATUS, PAYMENT, STOCK_LEVEL)
+  - Record and analyze the TPS for each transaction (`DELIVERY`, `NEW_ORDER`, `ORDER_STATUS`, `PAYMENT`, `STOCK_LEVEL`)
 
 3. Present experimental results
 
