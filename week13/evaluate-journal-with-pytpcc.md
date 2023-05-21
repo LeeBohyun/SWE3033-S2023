@@ -8,7 +8,7 @@ This week you will learn how to evaluate performance between two journal mode (R
 
 ## Prerequisite
  
-### Install SQLite Library (Sktip thi
+### Install SQLite Library
 - Skip this process if you already installed SQLite library
 
 ```bash
