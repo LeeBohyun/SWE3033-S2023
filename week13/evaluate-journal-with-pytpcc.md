@@ -49,7 +49,7 @@ cd pytpcc
 python tpcc.py --print-config sqlite &> sqlite.config
 
 # 4. Open sqlite.config file and modify the database path (./tpcc.db)
-vim sqltie.config
+vim sqlite.config
 ```
 
 ```
