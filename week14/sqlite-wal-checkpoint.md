@@ -1,0 +1,2 @@
+# Configuring Checkpoints in SQLite
+
