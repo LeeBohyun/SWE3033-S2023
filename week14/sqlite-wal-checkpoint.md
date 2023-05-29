@@ -92,7 +92,7 @@ cp backup.db tpcc.db
 sudo sysctl vm.drop_caches=3
 
 # run
-python tpcc.py --warehouse=10 --config=./sqlite.config --no-load --duration=1800 --wal_autocheckpoint=1000 sqlite
+python tpcc.py --warehouse=10 --config=./sqlite.config --no-load --duration=1800 --journal=wal --wal_autocheckpoint=1000 sqlite
 
 ```
 - `warehouse`: The number of warehouse 
@@ -118,6 +118,7 @@ python tpcc.py --warehouse=10 --config=./sqlite.config --no-load --duration=1800
 3. Present experimental results
 
 4. Analyze the results
+  - The `wal_autocheckpoint` value determines the ~~ when using WAL for journaling in SQLite.
   - hint. Invoking checkpoint frequently can cause the performance degradation due to ~~~ . 
 
 Organize the results and your answer into a single report and submit it. 
