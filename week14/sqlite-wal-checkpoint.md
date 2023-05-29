@@ -1,15 +1,15 @@
-# Configuring Checkpoints in SQLite
+# Configuring Checkpoints in SQLite and Evaluate with Androbench
 
 ## Overview
 
-This week you will learn how to configure checkpoint on SQLite database engine using TPC-C benchmark (`pytpcc`).
+This week you will learn how to configure checkpoint on SQLite database engine using androbench.
 
 > NOTE: This lab is based on the Linux environment. If you don't have a Linux machine, use [VirturalBox](https://www.virtualbox.org/). (Recommend Ubuntu 18.04)
 
 ## Prerequisite
  
 ### Install SQLite Library
-- Skip this process if you already installed SQLite library and `pytpcc`
+- Skip this process if you already installed SQLite library.
 
 ```bash
 # go to the SQLite build directory 
@@ -25,96 +25,44 @@ sqlite --version
 
 ```
 
-### Install python
+### Run Androbench
+
+### 2. Record and analyze the SQLite trace file 
+- Configure the SQLite environent setup
+- Evaluate execution time and record `real` time
+- [androbench.sql](https://github.com/LeeBohyun/SWE3033-S2023/blob/main/week14/androbench.sql)
 
 ```bash
-sudo apt-get install python
+vldb@NVDIMM:~/SWE3033/sqlite-src-3360000/build$ time ./sqlite3 /home/vldb/ssd/androbench.db < androbench.sql &> /dev/null
+
+real    0m10.947s
+user    0m0.546s
+sys     0m0.362s
 ```
 
-## Build `pytpcc` benchmark
+### 3. Change the SQLite environment and repeat step 2
 
-### 1. Setup `pytpcc` benchmark
-
-```bash
-
-# 1. Clone SWE3033-F2021 github repository
-git clone https://github.com/meeeejin/SWE3033-F2021.git
-cd week-13
-
-# 2. Unzip pytpcc
-unzip pytpcc
-
-# 3. Prepare the SQLite configuration file
-cd pytpcc
-python tpcc.py --print-config sqlite &> sqlite.config
-
-# 4. Open sqlite.config file and modify the database path (./tpcc.db)
-vim sqlite.config
+- Change the SQLite environment setup using `PRAGMA` command in `androbench.sql` file  
+- Change the wal_autocheckpoint : `1`, `2`, `4`, `8`, and `16`
 ```
+/* SQLite environment setup 
+* (jhpark): environment setup using PRAGMA command
+*/
 
+/* change this value */ 
+PRAGMA wal_autocheckpoint=1;
+/******************************/
 ```
-# SqliteDriver Configuration File
-# Created 2021-11-21 02:46:44.486741
-[sqlite]
-
-# The path to the SQLite database
-database             = ./tpcc.db
-```
-
-### 2. Load TPC-C database (Warehouse 10)
-
-```bash
-# loading
-python tpcc.py --warehouse=10 --config=./sqlite.config --no-execute sqlite
-```
-
-- `warehouse`: The number of warehouse 
-- `config` : Configuration file path
-- `no-execute` : Loading only version (no execute)
-
-```bash
-# change database file name for backup
-cp tpcc.db backup.db
-```
-
-### 3. Run TPC-C benchmark
-
-- For each run, prepare the same database file (copy `backup.db` database file)
-- To minimize the impact of the performance interference, flush all caches in the system using `vm.drop_caches=3` command.
-- Run TPC-C benchmark for 1800 sec
-
-```bash
-
-# prepare the database file
-cp backup.db tpcc.db
-
-# flush all cache
-sudo sysctl vm.drop_caches=3
-
-# run
-python tpcc.py --warehouse=10 --config=./sqlite.config --no-load --duration=1800 --journal=wal --wal_autocheckpoint=1000 sqlite
-
-```
-- `warehouse`: The number of warehouse 
-- `config` : Configuration file path
-- `no-load` : Running only version (no loading phase)
-- `duration` : Total execution time (N seconds)
-
-
-### 4. Change the value of `wal_autocheckpoint` and repeat step 2
-
-- Change the value of `wal_autocheckpoint` of the SQLite database engine 
-- Compare benchmark results between these values: `1` `10` `100` `1000`
 
 
 ## Report Submission
 
 1. Run TPC-C benchmark for four values:
-  - Change value of `wal_autocheckpoint`:  `1` `10` `100` `1000`
+  - Change value of `wal_autocheckpoint`:  `1`, `2`, `4`, `8`, and `16`
 
 2. Observe how TPS (txn/s) changes 
-  - Record and analyze the TPS for each transaction (`DELIVERY`, `NEW_ORDER`, `ORDER_STATUS`, `PAYMENT`, `STOCK_LEVEL`)
-
+  - Record the run time of androbench
+  
 3. Present experimental results
 
 4. Analyze the results
