@@ -57,10 +57,10 @@ PRAGMA wal_autocheckpoint=1;
 
 ## Report Submission
 
-1. Run TPC-C benchmark for four values:
+1. Run androbench.sql for four values:
   - Change value of `wal_autocheckpoint`:  `1`, `2`, `4`, `8`, and `16`
 
-2. Observe how TPS (txn/s) changes 
+2. Observe how runtime changes 
   - Record the run time of androbench
   
 3. Present experimental results
